@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+
+    <img class="prof_pic" src="{{ user.profile.image.url }}">
+
+    <h1> {{ user.username }}'s Profile Page </h1>
+
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <legend> Profile Info </legend>
+        {{ user_form|crispy }}
+        {{ profile_form|crispy }}
+
+        <input type="submit" value="Update">
+
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% for post in posts %}
+        <div class="posts-container">
+            <img src="{{ user.profile.image.url }}">
+            <h1> <a href="#"> {{ post.author|capfirst }} </a>  {{ post.date_posted|date:"F dS, Y"  }} at {{ post.date_posted|date:"f a"  }} </h1>
+             <hr>
+            <h2 class="post_title"> <a href="{% url 'post-detail' post.id %}"> {{ post.title }} </a> </h2>
+            <p> {{ post.content }} </p>
+        </div>
+    {% endfor %}
+{% endblock content %}

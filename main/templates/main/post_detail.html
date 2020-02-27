@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+        <div class="posts-container">
+            <img src="{{ user.profile.image.url }}">
+            <h1> <a href="#"> {{ object.author|capfirst }} </a>  {{ object.date_posted|date:"F dS, Y"  }} at {{ object.date_posted|date:"f a"  }} </h1>
+             <hr>
+            <h2 class="post_title">  {{ object.title }} </h2>
+            <p> {{ object.content }} </p>
+        </div>
+
+{% endblock content %}
